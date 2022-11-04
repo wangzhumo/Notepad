@@ -9,6 +9,7 @@ module.exports = {
         ga: 'xxx', // provide to enable google analysis
         siteName: 'Wangzhumo\'s Blog', // site name at navbar
         author: 'Wangzhumo', // author name at footer
+        logo: './images/favicon.ico',
         // enable navbar and add links
         navbar: true,
         nav: [
@@ -18,5 +19,8 @@ module.exports = {
         ],
         search: false,
         searchMaxSuggestions: 10
-      }
+      },
+      head: [
+        ['link', { rel: 'icon', href: '/images/favicon.ico' }], //favicons，资源放在public文件夹
+      ]
 }

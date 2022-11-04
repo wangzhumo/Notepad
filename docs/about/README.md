@@ -3,13 +3,15 @@ title: 关于
 lang: zh-CN
 layout: Page
 ---
----
+
+![image](./../.vuepress/public/images/bEXy1YQNIII.jpg)
 
 - Android Developer 
 - Unity3d
 - Flutter
 
 #### 联系方式：
+
 
 邮箱: wangzhumoo@gmail.com
 
