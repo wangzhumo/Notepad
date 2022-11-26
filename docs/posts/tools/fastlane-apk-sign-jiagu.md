@@ -6,7 +6,6 @@ tags:
 date: 2021-09-17
 ---
 
-
 ## 前言
 
 Fastlane是一个集成工具，以前用来打flutter的工程，感觉比较好用，近期因为工程里的一个库和walle冲突，以前的打包方式就不适用了。
@@ -53,7 +52,6 @@ gem "fastlane"
 
 plugins_path = File.join(File.dirname(__FILE__), 'fastlane', 'Pluginfile')
 eval_gemfile(plugins_path) if File.exist?(plugins_path)
-
 ```
 
 而后执行
@@ -68,8 +66,6 @@ Path to the json secret file:   #我这里不需要，直接跳过
 Download existing metadata and setup metadata management? (y/n)  #不需要直接 n 回车
 Continue by pressing Enter ⏎  # 回车即可
 ```
-
-
 
 4.初始化完成
 
@@ -88,8 +84,6 @@ Continue by pressing Enter ⏎  # 回车即可
 other #自己项目内容
 ```
 
-
-
 ## Channel信息
 
 #### 参数传递
@@ -98,7 +92,7 @@ Jenkins 中选择channel【all】,【channel,channel2,channel3】，【channel�
 
 ```shell
 script[
-	 sh('fastlane android beta channel:${channels}')
+     sh('fastlane android beta channel:${channels}')
 ]
 ```
 
@@ -114,8 +108,8 @@ android {
         multiDexEnabled true
         multiDexKeepProguard file("multidexKeep.pro")
         multiDexKeepFile file("multidex-config.txt")
-    
-    		manifestPlaceholders = [
+
+            manifestPlaceholders = [
                 CHANNEL_VALUE : "Debug"  // 这里也修改掉
         ]
     }
@@ -213,7 +207,6 @@ task modifyChannelInfoTask {
     printWriter.flush()
     printWriter.close()
 }
-
 ```
 
 那么当我每次编译的时候，这里都会执行，从而修改对应的文件，这一步修改：
@@ -335,13 +328,13 @@ platform :android do
       puts("---------------print debug apk info start-----------------")
       app_info
 
-    	app_info_json = JSON.parse(ENV['APP_INFO'])
+        app_info_json = JSON.parse(ENV['APP_INFO'])
 
       # 获取版本名称
       version_name = app_info_json['ReleaseVersion'];
       # 获取版本号
       version_code = app_info_json['BuildVersion'];
-    
+
       # 默认的apk地址名字
       apk_file_path=lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]
       apk_name=apk_name+ "-debug-" + version_code + "-" + timestamp + ".apk"
@@ -358,8 +351,8 @@ platform :android do
       fir_result = fir_cli api_token: "xxxxxx",specify_file_path: "#{apk_path}",  changelog: "#{timestamp_string}"
 
       UI.message "#{fir_result}"
-			
-    	# 钉钉通知
+
+        # 钉钉通知
       notification_dingtalk(uploadUrl:fir_result[:short],buildType:"Debug")
 
       say("Android打包完成")
@@ -381,5 +374,4 @@ end
 | fastlane-plugin-android_change_string_app_name | 0.1.1   | android_change_string_app_name               |
 | fastlane-plugin-fir_cli                        | 2.0.11  | fir_cli                                      |
 +------------------------------------------------+---------+----------------------------------------------+
-
 ```

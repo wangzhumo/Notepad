@@ -2,8 +2,10 @@
 title: Rust 学习笔记-类型/函数/控制流
 lang: zh-CN
 tags:
-  - Rust
-date: 2022-08-22
+
+- Rust
+  date: 2022-08-22
+
 ---
 
 ## 数据类型
