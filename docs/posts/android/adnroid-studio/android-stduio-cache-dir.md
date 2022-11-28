@@ -9,6 +9,7 @@ date: 2020-10-06
 ## Gradle
 
 #### Dir:
+
 ~/.gradle
 
 #### Config
@@ -30,7 +31,6 @@ date: 2020-10-06
 #### NDK
 
 ~/Library/Android/Sdk/ndk-bundle
-
 
 ## Clear Cache
 
